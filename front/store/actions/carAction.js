@@ -1,6 +1,6 @@
 import { CREAR_CARRITO } from '../types';
-import clienteAxios from '../config/exios';
-//crear carrito producto
+import clienteAxios from '../config/exios'
+//crear pago producto
 export function createCar(car) {
     return async (dispatch) => {
         try {
