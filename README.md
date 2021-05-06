@@ -16,7 +16,7 @@ _Desconocimiento:._
 
 _Clonar repositorio, una vez clonado abrimos dos terminales y nos posicionamos en la carpeta **front** y **backend**,_
 
-_Cabiar las credenciales de la carpeta config en caso de querer usar una conexión distinta_
+_Cambiar las credenciales de la carpeta config en caso de querer usar una conexión distinta_
 
 
 ```
