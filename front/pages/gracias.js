@@ -19,19 +19,19 @@ const Gracias = () => {
                                 <tr className="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0" key={index}>
                                     <th className="p-3 text-left">
                                         Fabricante
-                                </th>
-                                    <th className="p-3 text-left">
-                                        Nombre
-                                </th>
-                                    <th className="p-3 text-left">
-                                        Modelo
-                                </th>
-                                    <th className="p-3 text-left">
-                                        Descripcion
-                                </th>
-                                    <th className="p-3 text-left">
-                                        Costo
-                                </th>
+                                    </th>
+                                        <th className="p-3 text-left">
+                                            Nombre
+                                    </th>
+                                        <th className="p-3 text-left">
+                                            Modelo
+                                    </th>
+                                        <th className="p-3 text-left">
+                                            Descripcion
+                                    </th>
+                                        <th className="p-3 text-left">
+                                            Costo
+                                    </th>
                                 </tr>
                             )
                         }
