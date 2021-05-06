@@ -1,15 +1,16 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { formatter } from '../helpers/formatMoney';
 import { imgItem } from '../helpers/imageData';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateCar } from '../store/actions/carAction';
 
 const Cotizador = ({ product, carShop, setCarShop, setAlert, currency }) => {
-
+    const dispatch = useDispatch(); // Constante para poder usar las funciones declaradas con redux
     const { name, maker, car_type, price_mxn, price_usd, description_es, description_en } = product;
-
     const storeData = useSelector(state => state);
     const [reserva, setReserva] = useState(false); //Constante para pintar Reservado ,en caso de que sea true
     const [confirm, setConfirm] = useState(false);//Constante para pintar Comprado ,en caso de que sea true
+    const putCar = client => dispatch(updateCar(client));
 
     useEffect(() => {
         const newDatas = carShop.filter(prod => prod._id === product._id);// filtra para obtener los productos seleccionados
@@ -30,6 +31,7 @@ const Cotizador = ({ product, carShop, setCarShop, setAlert, currency }) => {
             setAlert({ message: `El producto ${confirm ? 'no esta disponible' : 'ya esta agregado'} `, status: true, color: 'bg-red-500' });
         } else {
             setCarShop([...carShop, data]);
+            putCar({ id_car: storeData.car.id_car, products: [...carShop, data] });
             setReserva(true);
             setAlert({ message: "El producto se agrego", status: true, color: ' bg-green-500' });
         }

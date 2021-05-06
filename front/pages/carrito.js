@@ -1,6 +1,12 @@
 import React, { Fragment } from 'react'
 import { formatter } from '../helpers/formatMoney';
+import { updateCar } from '../store/actions/carAction';
+import { useSelector, useDispatch } from 'react-redux';
+
 const Carrito = ({ carShop = [], total = 0, currency = "mxn", setViewModal, setCarShop }) => {
+    const dispatch = useDispatch(); // Constante para poder usar las funciones declaradas con redux
+    const storeData = useSelector(state => state);
+    const putCar = client => dispatch(updateCar(client));
     /**
     *   @description Funcion para mostrar el formulario persona
     */
@@ -13,6 +19,7 @@ const Carrito = ({ carShop = [], total = 0, currency = "mxn", setViewModal, setC
     */
     const deleteItem = (id) => {
         const newDatas = carShop.filter(prod => prod._id !== id);
+        putCar({ id_car: storeData.car.id_car, products: newDatas });
         setCarShop(newDatas);
     }
     const changeModel = (e, index) => {

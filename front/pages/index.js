@@ -4,6 +4,8 @@ import Alert from '../components/alert/alert';
 import Nav from '../components/nav/nav';
 import { useDispatch, useSelector } from 'react-redux';
 import { listCars } from '../store/actions/productsAction';
+import { createCar } from '../store/actions/carAction';
+
 import Cotizador from './cotizador';
 import Carrito from './carrito';
 import FormPerson from '../components/formPerson/formPerson';
@@ -18,10 +20,15 @@ const Home = () => {
     const [viewCar, setViewCar] = useState(false); // para mostrar la seccion del carrito
     const [viewModal, setViewModal] = useState(false);// para inicializa el modal al momento de ser true
     const [total, setTotal] = useState(0);// total de los productos seleccionados
+    const [disabled, setDisabled] = useState(false);// total de los productos seleccionados
 
     const listProducts = () => dispatch(listCars()); // funciona para poder ejecutar la api 
-
+    const newCar = client => dispatch(createCar(client));
     useEffect(() => {
+        if (disabled === false) {
+            newCar(storeData.car);
+        }
+        setDisabled(true);
         if (products.length === 0) { // validacion para no llamar la api muchas veces
             listProducts();
             setTimeout(() => {
