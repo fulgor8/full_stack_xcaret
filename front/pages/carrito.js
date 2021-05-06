@@ -7,12 +7,7 @@ const Carrito = ({ carShop = [], total = 0, currency = "mxn", setViewModal, setC
     const dispatch = useDispatch(); // Constante para poder usar las funciones declaradas con redux
     const storeData = useSelector(state => state);
     const putCar = client => dispatch(updateCar(client));
-    /**
-    *   @description Funcion para mostrar el formulario persona
-    */
-    const payment = () => {
-        setViewModal(true);
-    }
+
     /**
     *   @description Funcion para eliminar producto del carrito
     *   @param {Number} id
@@ -28,15 +23,8 @@ const Carrito = ({ carShop = [], total = 0, currency = "mxn", setViewModal, setC
         setCarShop(newDatas);
     }
     return (
-        <div className="grid lg:grid-cols-1 gap-4 px-4">
-            <button
-                onClick={() => payment()}
-                className="px-24 py-4 bg-gray-900 rounded-md text-white text-sm focus:border-transparent btn-flotante-xcaret">
-                Pagar
-                    </button>
-            <p className="text-total-xcaret ">
-                Total: {`${formatter.format(total)} ${currency}`}
-            </p>
+        <div className="grid lg:grid-cols-2 gap-4 px-4">
+
             {
                 carShop.map((row, index) =>
                     <div key={index} className="bg-gray-100 border-indigo-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-2xl border-2 |  justify-around  | hover:bg-indigo-400 dark:hover:bg-indigo-600 hover:border-transparent | transition-colors duration-500">

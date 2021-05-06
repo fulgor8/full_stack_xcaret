@@ -9,6 +9,7 @@ import { createCar } from '../store/actions/carAction';
 import Cotizador from './cotizador';
 import Carrito from './carrito';
 import FormPerson from '../components/formPerson/formPerson';
+import Modal from '../components/modal/modal';
 
 const Home = () => {
     const storeData = useSelector(state => state);// Constante para obtener el store default o actualizado
@@ -76,8 +77,8 @@ const Home = () => {
                 />
             }
             <div className="flex  flex-wrap">
-                <div className={`w-full ${viewCar && 'md:w-3/4'} text-center `}>
-                    <div className="grid lg:grid-cols-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
+                <div className={`w-full ${viewCar && 'md:w-4/4 lg:w-4/4 sm:w-4/4 '} text-center `}>
+                    <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
                         {
                             products.map((row, index) =>
 
@@ -93,19 +94,23 @@ const Home = () => {
                         }
                     </div>
                 </div>
-                {
-                    carShop.length > 0 && viewCar &&
-                    <div className={`w-full ${viewCar && 'md:w-1/4'} p-4 text-center text-gray-700`}>
-                        <Carrito
-                            carShop={carShop}
-                            total={total}
-                            currency={currency}
-                            setViewModal={setViewModal}
-                            setCarShop={setCarShop}
-                        />
-                    </div>
-                }
             </div>
+            {
+                carShop.length > 0 && viewCar &&
+                <Modal
+                    status={viewCar}
+                    close={setViewCar}
+                    component={<Carrito
+                        carShop={carShop}
+                        total={total}
+                        currency={currency}
+                        setViewModal={setViewModal}
+                        setCarShop={setCarShop}
+                    />}
+                    item={{ total, currency }}
+                    setViewModal={setViewModal}
+                />
+            }
             {
                 alert.status &&
                 <Alert

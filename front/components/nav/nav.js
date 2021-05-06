@@ -1,21 +1,23 @@
 import React from 'react'
-
-const Nav = ({ carShop=[], setCurrency, setViewCar, viewCar,setAlert}) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import the FontAwesomeIcon component
+import { faBars, faDollarSign, faCartPlus } from "@fortawesome/free-solid-svg-icons"; // import the icons you need
+const Nav = ({ carShop = [], setCurrency, setViewCar, viewCar, setAlert }) => {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
-    
+
     const ChangeCurrency = (corrency) => {
         setCurrency(corrency);
     }
     const viewCarShop = (status) => {
-        if(carShop.length > 0){
+        if (carShop.length > 0) {
             setViewCar(!status);
-        }else{
-            setAlert({message:"No hay productos en el carrito",status:true,color:'bg-red-500'});
+        } else {
+            setAlert({ message: "No hay productos en el carrito", status: true, color: 'bg-red-500' });
 
         }
     }
     return (
         <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-900 mb-3">
+
             <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                 <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                     <a
@@ -29,7 +31,8 @@ const Nav = ({ carShop=[], setCurrency, setViewCar, viewCar,setAlert}) => {
                         type="button"
                         onClick={() => setNavbarOpen(!navbarOpen)}
                     >
-                        <i className="fas fa-bars"></i>
+                        <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+
                     </button>
                 </div>
                 <div
@@ -46,7 +49,8 @@ const Nav = ({ carShop=[], setCurrency, setViewCar, viewCar,setAlert}) => {
                                 className="cursor-pointer px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                 onClick={() => ChangeCurrency('usd')}
                             >
-                                <i className="fas fa-dollar-sign text-lg leading-lg text-white opacity-75"></i><span className="ml-2">USD</span>
+                                <FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon><span className="ml-2">USD</span>
+
                             </a>
                         </li>
                         <li className="nav-item">
@@ -55,7 +59,8 @@ const Nav = ({ carShop=[], setCurrency, setViewCar, viewCar,setAlert}) => {
                                 className="cursor-pointer px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                 onClick={() => ChangeCurrency('mxn')}
                             >
-                                <i className="fas fa-money-bill-wave-alt text-lg leading-lg text-white opacity-75"></i><span className="ml-2">MXN</span>
+                                <FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon><span className="ml-2">MXN</span>
+
                             </a>
                         </li>
                         <li className="nav-item">
@@ -64,7 +69,9 @@ const Nav = ({ carShop=[], setCurrency, setViewCar, viewCar,setAlert}) => {
                                 className="cursor-pointer px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                 onClick={() => viewCarShop(viewCar)}
                             >
-                                <i className="fas fa-cart-plus text-lg leading-lg text-white opacity-75"></i><span className="ml-2">{`( ${carShop.length} )`}</span>
+
+                                <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon><span className="ml-2">{`( ${carShop.length} )`}</span>
+
                             </a>
                         </li>
                     </ul>
