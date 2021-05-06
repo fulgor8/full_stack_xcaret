@@ -26,7 +26,7 @@ _Clonar repositorio, una vez clonado abrimos dos terminales y nos posicionamos e
 ```
 
 ### Correr el proyecto
-_El front corre en el puerto 3000 y el backend en el puerto 5000,_
+_El front corre en el puerto 3000 y el backend en el puerto 5000, en caso de fallar revise su node.js v12.16.0_
 
 ```
  Ejecutar el siguiente comando npm run dev.

@@ -4,7 +4,7 @@ import { pagoProducto } from '../../store/actions/productsAction';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router'
 
-export default function FormPerson({ setViewModal, carShop, setAlert }) {
+export default function FormPerson({ setViewModal, carShop, setAlert,total }) {
     const dispatch = useDispatch();
     const router = useRouter();
     const insertClient = client => dispatch(pagoProducto(client));
@@ -29,7 +29,7 @@ export default function FormPerson({ setViewModal, carShop, setAlert }) {
             return;
         }
         setShowModal(status);
-        insertClient({ firstName, lastName, products: carShop });
+        insertClient({ firstName, lastName, products: carShop ,total});
         router.push('/gracias'); // redirecciona a la vista de gracias
     }
     return (

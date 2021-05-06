@@ -65,6 +65,7 @@ const Home = () => {
                     carShop={carShop}
                     setViewModal={setViewModal}
                     setAlert={setAlert}
+                    total={total}
                 />
             }
             <div className="flex  flex-wrap">

@@ -5,11 +5,10 @@ import { formatter } from '../helpers/formatMoney';
 import Link from 'next/link'
 import { Fragment } from 'react';
 
-const Gracias = ({ total = 0, }) => {
+const Gracias = () => {
     const storeData = useSelector(state => state); // Constante para obtener el store default o actualizado
-    const list = storeData.productos.client.products ?  storeData.productos.client.products:[]; // lista se los productos seleccionados
+    const list = storeData.productos.client.products ? storeData.productos.client.products : []; // lista se los productos seleccionados
     const { currency, client } = storeData.productos;
-
     return (
         <Fragment>
             <div className="flex justify-center items-center">
@@ -41,6 +40,7 @@ const Gracias = ({ total = 0, }) => {
                         {
                             list.map((row, index) =>
                                 <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0" key={index}>
+
                                     <td className="border-grey-light border hover:bg-gray-100 p-3">{row.maker}</td>
                                     <td className="border-grey-light border hover:bg-gray-100 p-3">{row.name}</td>
                                     <td className="border-grey-light border hover:bg-gray-100 p-3">{row.modelSelected ? row.modelSelected : "Color unico"}</td>
@@ -59,7 +59,7 @@ const Gracias = ({ total = 0, }) => {
                         <img alt="mountain" className="h-20 w-20 rounded-md border-2 border-gray-300" src="https://www.pxsglobal.net/wp-content/uploads/2019/01/successpayment.png" />
                         <div id="body" className="flex flex-col ml-5">
                             <h4 id="name" className="text-xl font-semibold mb-2">Gracias por su compra</h4>
-                            <p className="text-transform: uppercase">{`Total: ${formatter.format(total)} ${currency}`}</p>
+                            <p className="text-transform: uppercase">{`Total: ${formatter.format(client.total ? client.total : 0)} ${currency}`}</p>
                             <div className="flex mt-5">
                                 <p className="ml-3">{`${client.firstName} ${client.lastName}`}</p>
                             </div>
