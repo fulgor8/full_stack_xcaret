@@ -5,7 +5,7 @@ export function createCar(car) {
     return async (dispatch) => {
         try {
             dispatch(newCar(car));
-            const respuesta = await clienteAxios.post('api/createCarShop', car);
+            const respuesta = await clienteAxios.post('api/ShoppingCart', car);
             console.log(respuesta.data);
 
         } catch (error) {
@@ -18,7 +18,7 @@ export function updateCar(car) {
     return async (dispatch) => {
         try {
             dispatch(newCar(car));
-            const respuesta = await clienteAxios.put('api/putCarShop', car);
+            const respuesta = await clienteAxios.put('api/putShoppingCart', car);
             console.log(respuesta.data);
 
         } catch (error) {

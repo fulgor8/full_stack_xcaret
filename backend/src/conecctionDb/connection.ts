@@ -1,6 +1,7 @@
 import mongoose,{ConnectionOptions} from 'mongoose';
 import config from './config';
 const CONNECTION_URL = `mongodb+srv://${config.USERNAMEDB}:${config.PASSWORDDB}@cluster0.xdxr5.mongodb.net/${config.DATABASE}?retryWrites=true&w=majority`;
+console.log(CONNECTION_URL);
 (async()=>{
     const mongooseOption:ConnectionOptions = {
         useNewUrlParser: true,  
