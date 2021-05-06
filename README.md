@@ -24,6 +24,8 @@ _Clonar repositorio, una vez clonado abrimos dos terminales y nos posicionamos e
  C:\front\full_stack_xcaret/cliente: npm install 
  C:\front\full_stack_xcaret/backend: npm install 
 ```
+###  Conexión
+_Cambiar las credenciales de la carpeta config en caso de querer usar una conexión distinta_
 
 ### Correr el proyecto
 _El front corre en el puerto 3000 y el backend en el puerto 5000, en caso de fallar revise su node.js v12.16.0_
