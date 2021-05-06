@@ -78,7 +78,7 @@ const Home = () => {
             }
             <div className="flex  flex-wrap">
                 <div className={`w-full ${viewCar && 'md:w-4/4 lg:w-4/4 sm:w-4/4 '} text-center `}>
-                    <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
                         {
                             products.map((row, index) =>
 

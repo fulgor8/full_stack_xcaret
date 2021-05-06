@@ -61,7 +61,7 @@ const Gracias = () => {
                             <h4 id="name" className="text-xl font-semibold mb-2">Gracias por su compra</h4>
                             <p className="text-transform: uppercase">{`Total: ${formatter.format(client.total ? client.total : 0)} ${currency}`}</p>
                             <div className="flex mt-5">
-                                <p className="ml-3">{`${client.firstName} ${client.lastName}`}</p>
+                                <p className="ml-3">Nombre :{`${client.firstName} ${client.lastName}`}</p>
                             </div>
                             <Link href="/"><a className="px-24 py-4 bg-gray-900 rounded-md text-white text-sm focus:border-transparent">Seguir Comprando</a></Link>
                         </div>

@@ -1,10 +1,6 @@
-import {
-    AGREGAR_CARRITO,
-    ELIMINAR_CARRITO,
-    CREAR_CARRITO
-} from '../types';
-import clienteAxios from '../config/exios'
-//crear pago producto
+import { CREAR_CARRITO } from '../types';
+import clienteAxios from '../config/exios';
+//crear carrito producto
 export function createCar(car) {
     return async (dispatch) => {
         try {
